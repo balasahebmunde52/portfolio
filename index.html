@@ -75,6 +75,20 @@
             background: #333;
             color: #fff;
         }
+        img {
+            display: block;
+            margin: 10px auto;
+        }
+        .contact-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .contact-info img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
@@ -90,7 +104,7 @@
     <div class="container" id="home">
         <h1>Balasaheb Munde - Java Developer</h1>
         <div class="card">
-            <img src="images/profile.jpg" alt="Balasaheb Munde" style="width:150px; height:auto; border-radius:50%; display:block; margin:auto;">
+            <img src="images/profile.jpg" alt="Balasaheb Munde Profile Picture" style="width:150px; height:auto; border-radius:50%;">
             <p>I am a results-driven Java Developer with 3 years of experience (including notice period) in software engineering...</p>
         </div>
     </div>
@@ -99,16 +113,15 @@
         <h2>About Me</h2>
         <ul>
             <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/balasaheb-java-spring-boot-developer">Balasaheb's LinkedIn</a></li>
-            <li><strong>Email:</strong> balasahebmunde52@gmail.com</li>
-            <li><strong>Phone:</strong> (+91) 8412843162</li>
+            <li class="contact-info"><img src="images/email-icon.png" alt="Email Icon"><strong>Email:</strong> balasahebmunde52@gmail.com</li>
+            <li class="contact-info"><img src="images/phone-icon.png" alt="Phone Icon"><strong>Phone:</strong> (+91) 8412843162</li>
         </ul>
-        <img src="images/linkedin-logo.png" alt="LinkedIn" style="width:50px; height:auto; margin-top:10px;">
     </div>
 
     <div class="card" id="skills">
         <h2>Technical Skills</h2>
         <ul>
-            <li>Java (Object-Oriented Programming, Multithreading, JDBC)</li>
+            <li class="contact-info"><img src="images/java-logo.png" alt="Java Logo">Java (Object-Oriented Programming, Multithreading, JDBC)</li>
             <li>Spring Boot (Actuators, Microservice-Based Architecture)</li>
             <li>Microservices Architecture</li>
             <li>MySQL, MongoDB (NoSQL), PostgreSQL</li>
@@ -124,7 +137,7 @@
     <div class="card" id="experience">
         <h2>Professional Experience</h2>
         <h3>Software Engineer</h3>
-        <p>Loylty Rewardz Management Pvt. Ltd.</p>
+        <div class="contact-info"><img src="images/company-logo.png" alt="Company Logo"><p>Loylty Rewardz Management Pvt. Ltd.</p></div>
         <ul>
             <li><strong>Project:</strong> Bank Loyalty Program</li>
             <li><strong>Overview:</strong> Developed and maintained a loyalty management system for banks to enhance customer engagement through reward points accumulation, redemption, and tracking.</li>
@@ -153,7 +166,7 @@
     <div class="card" id="projects">
         <h2>Projects</h2>
         <h3>Bank Loyalty Program</h3>
-        <img src="images/project-loyalty.png" alt="Bank Loyalty Program" style="width:100%; height:auto; margin-top:10px;">
+        <img src="images/project-loyalty.png" alt="Screenshot of Bank Loyalty Program Project" style="width:100%; height:auto; margin-top:10px;">
         <ul>
             <li><strong>Overview:</strong> Developed a loyalty management system to enhance customer engagement for banks.</li>
             <li><strong>Key Responsibilities:</strong>
@@ -174,8 +187,8 @@
         <h2>Contact</h2>
         <p>Feel free to reach out to me via email or phone:</p>
         <ul>
-            <li>Email: balasahebmunde52@gmail.com</li>
-            <li>Phone: (+91) 8412843162</li>
+            <li class="contact-info"><img src="images/email-icon.png" alt="Email Icon">balasahebmunde52@gmail.com</li>
+            <li class="contact-info"><img src="images/phone-icon.png" alt="Phone Icon">(+91) 8412843162</li>
         </ul>
     </div>
 
