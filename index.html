@@ -8,12 +8,18 @@
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
         }
         nav {
             background-color: #333;
             color: #fff;
             padding: 1rem;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         nav a {
             color: #fff;
@@ -37,10 +43,14 @@
             padding: 0;
         }
         ul li {
-            background: #f4f4f4;
+            background: #fff;
             margin: .5rem 0;
             padding: .5rem;
             border: #ccc 1px solid;
+            transition: all 0.3s ease;
+        }
+        ul li:hover {
+            background: #f0f0f0;
         }
         .card {
             border: 1px solid #ddd;
@@ -48,6 +58,10 @@
             margin: 1rem 0;
             border-radius: 5px;
             box-shadow: 2px 2px 12px #aaa;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
         }
         .button {
             display: inline-block;
@@ -75,21 +89,43 @@
             background: #333;
             color: #fff;
         }
-        img {
-            display: block;
-            margin: 10px auto;
-        }
         .contact-info {
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .contact-info img {
-            width: 30px;
-            height: 30px;
-            margin-right: 10px;
+        .fade-in {
+            opacity: 0;
+            transition: opacity 2s;
+        }
+        .visible {
+            opacity: 1;
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var faders = document.querySelectorAll('.fade-in');
+            var options = {
+                threshold: 0.5,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            var appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(function(entry) {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('visible');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, options);
+
+            faders.forEach(function(fader) {
+                appearOnScroll.observe(fader);
+            });
+        });
+    </script>
 </head>
 <body>
     <nav>
@@ -103,25 +139,24 @@
 
     <div class="container" id="home">
         <h1>Balasaheb Munde - Java Developer</h1>
-        <div class="card">
-            <img src="images/profile.jpg" alt="Balasaheb Munde Profile Picture" style="width:150px; height:auto; border-radius:50%;">
-            <p>I am a results-driven Java Developer with 3 years of experience (including notice period) in software engineering...</p>
+        <div class="card fade-in">
+            <p>I am a results-driven Java Developer with 2.10 years of experience in software engineering, specializing in Java, Spring Boot, Microservices Architecture, MySQL, MongoDB, and CI/CD practices...</p>
         </div>
     </div>
 
-    <div class="card" id="about">
+    <div class="card fade-in" id="about">
         <h2>About Me</h2>
         <ul>
             <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/balasaheb-java-spring-boot-developer">Balasaheb's LinkedIn</a></li>
-            <li class="contact-info"><img src="images/email-icon.png" alt="Email Icon"><strong>Email:</strong> balasahebmunde52@gmail.com</li>
-            <li class="contact-info"><img src="images/phone-icon.png" alt="Phone Icon"><strong>Phone:</strong> (+91) 8412843162</li>
+            <li class="contact-info"><strong>Email:</strong> balasahebmunde52@gmail.com</li>
+            <li class="contact-info"><strong>Phone:</strong> (+91) 8412843162</li>
         </ul>
     </div>
 
-    <div class="card" id="skills">
+    <div class="card fade-in" id="skills">
         <h2>Technical Skills</h2>
         <ul>
-            <li class="contact-info"><img src="images/java-logo.png" alt="Java Logo">Java (Object-Oriented Programming, Multithreading, JDBC)</li>
+            <li>Java (Object-Oriented Programming, Multithreading, JDBC)</li>
             <li>Spring Boot (Actuators, Microservice-Based Architecture)</li>
             <li>Microservices Architecture</li>
             <li>MySQL, MongoDB (NoSQL), PostgreSQL</li>
@@ -134,10 +169,10 @@
         </ul>
     </div>
 
-    <div class="card" id="experience">
+    <div class="card fade-in" id="experience">
         <h2>Professional Experience</h2>
         <h3>Software Engineer</h3>
-        <div class="contact-info"><img src="images/company-logo.png" alt="Company Logo"><p>Loylty Rewardz Management Pvt. Ltd.</p></div>
+        <div class="contact-info"><p>Loyalty Rewardz Management Pvt. Ltd.</p></div>
         <ul>
             <li><strong>Project:</strong> Bank Loyalty Program</li>
             <li><strong>Overview:</strong> Developed and maintained a loyalty management system for banks to enhance customer engagement through reward points accumulation, redemption, and tracking.</li>
@@ -163,10 +198,9 @@
         </ul>
     </div>
 
-    <div class="card" id="projects">
+    <div class="card fade-in" id="projects">
         <h2>Projects</h2>
         <h3>Bank Loyalty Program</h3>
-        <img src="images/project-loyalty.png" alt="Screenshot of Bank Loyalty Program Project" style="width:100%; height:auto; margin-top:10px;">
         <ul>
             <li><strong>Overview:</strong> Developed a loyalty management system to enhance customer engagement for banks.</li>
             <li><strong>Key Responsibilities:</strong>
@@ -183,17 +217,11 @@
         </ul>
     </div>
 
-    <div class="card" id="contact">
+    <div class="card fade-in" id="contact">
         <h2>Contact</h2>
         <p>Feel free to reach out to me via email or phone:</p>
         <ul>
-            <li class="contact-info"><img src="images/email-icon.png" alt="Email Icon">balasahebmunde52@gmail.com</li>
-            <li class="contact-info"><img src="images/phone-icon.png" alt="Phone Icon">(+91) 8412843162</li>
+            <li class="contact-info"><strong>Email:</strong> balasahebmunde52@gmail.com</li>
+            <li class="contact-info"><strong>Phone:</strong> (+91) 8412843162</li>
         </ul>
-    </div>
-
-    <footer>
-        <p>&copy; 2024 Balasaheb Munde</p>
-    </footer>
-</body>
-</html>
+   
