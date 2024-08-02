@@ -312,3 +312,329 @@
     </footer>
 </body>
 </html>
+Changes Made:
+Added container class to the skills section.
+Improved the mobile responsiveness of the navigation links and containers.
+Test this code in your environment and see if it resolves the issues. If further adjustments are needed, let me know!
+
+
+
+
+
+change the location of skills tab and add these skills somewher else because this skills are't rendering still these skills are not visible pleace somewhere in page just highlight
+ChatGPT
+Memory updated
+To resolve the issue, we'll move the skills list to the "About Me" section and ensure they are visible and highlighted. Here's the updated HTML:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balasaheb Munde - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+            scroll-behavior: smooth;
+        }
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #4CAF50;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 2rem 1rem;
+            padding-top: 80px; /* Adjusted to avoid overlap with sticky navbar */
+        }
+        .section {
+            padding: 2rem 0;
+            margin: 1rem 0;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+            font-size: 2rem;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            background: #fff;
+            margin: .5rem 0;
+            padding: .5rem;
+            border: #ccc 1px solid;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        ul li:hover {
+            background: #f0f0f0;
+            transform: translateX(10px);
+        }
+        .card {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px #999;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #3e8e41;
+        }
+        .button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 2px #666;
+            transform: translateY(2px);
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #333;
+            color: #fff;
+        }
+        .contact-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0.5rem 0;
+        }
+        .contact-info .icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #4CAF50;
+        }
+        .fade-in {
+            opacity: 0;
+            transition: opacity 2s;
+        }
+        .visible {
+            opacity: 1;
+        }
+        .highlight {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        .icon-linkedin::before {
+            content: "\f08c"; /* LinkedIn icon */
+            font-family: 'FontAwesome';
+        }
+        .icon-email::before {
+            content: "\f0e0"; /* Envelope icon */
+            font-family: 'FontAwesome';
+        }
+        .icon-phone::before {
+            content: "\f095"; /* Phone icon */
+            font-family: 'FontAwesome';
+        }
+        @media (max-width: 600px) {
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+            .container {
+                padding: 1rem;
+            }
+        }
+        .section-title {
+            text-align: center;
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            padding: 0.5rem;
+            background: #4CAF50;
+            color: #fff;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var faders = document.querySelectorAll('.fade-in');
+            var options = {
+                threshold: 0.5,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            var appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, options);
+
+            faders.forEach(function(fader) {
+                appearOnScroll.observe(fader);
+            });
+        });
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container" id="home">
+        <h1>Balasaheb Munde - Java Developer</h1>
+        <div class="card fade-in">
+            <p>I am a results-driven Java Developer with 2.10 years of experience in software engineering, specializing in Java, Spring Boot, Microservices Architecture, MySQL, MongoDB, and CI/CD practices. Passionate about delivering impactful solutions and optimizing system performance. Proven track record in collaborative environments, adept at problem-solving and continuous improvement. Eager to leverage expertise in innovative projects that push boundaries and deliver measurable impact.</p>
+        </div>
+    </div>
+
+    <div class="container" id="about">
+        <div class="card section fade-in">
+            <h2 class="section-title">About Me</h2>
+            <ul>
+                <li class="contact-info"><span class="icon icon-linkedin"></span><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/balasaheb-java-spring-boot-developer" class="highlight">Balasaheb's LinkedIn</a></li>
+                <li class="contact-info"><span class="icon icon-email"></span><strong>Email:</strong> <a href="mailto:balasahebmunde52@gmail.com">balasahebmunde52@gmail.com</a></li>
+                <li class="contact-info"><span class="icon icon-phone"></span><strong>Phone:</strong> <a href="tel:+918412843162">(+91) 8412843162</a></li>
+            </ul>
+            <h3 class="section-title">Technical Skills</h3>
+            <ul>
+                <li>Java (Object-Oriented Programming, Multithreading, JDBC)</li>
+                <li>Spring Boot (Actuators, Microservice-Based Architecture)</li>
+                <li>Microservices Architecture</li>
+                <li>MySQL (MySQL Database)</li>
+                <li>MongoDB (NoSQL)</li>
+                <li>Shell Scripting</li>
+                <li>CI/CD Practices (Jenkins, Git)</li>
+                <li>Kubernetes (K8s)</li>
+                <li>Kafka (Messaging Queues)</li>
+                <li>Linux</li>
+                <li>Postman Tool</li>
+                <li>Hibernate (JPA)</li>
+                <li>Prometheus</li>
+                <li>Eclipse IDE</li>
+                <li>IntelliJ IDEA</li>
+                <li>Swagger</li>
+                <li>REST API</li>
+                <li>Bootstrap</li>
+                <li>Apache Camel</li>
+                <li>Apache Airflow</li>
+                <li>JIRA (Project Management)</li>
+                <li>SuperPutty</li>
+                <li>WinSCP</li>
+                <li>OAuth</li>
+                <li>SSL Configuration</li>
+                <li>Problem Solving and Resolution</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container" id="experience">
+
+    <div class="container" id="experience">
+        <div class="card section fade-in">
+            <h2 class="section-title">Professional Experience</h2>
+            <h3>Loylty Rewardz Management Pvt. Ltd. - Software Engineer</h3>
+            <ul>
+                <li><strong>Project:</strong> Bank Loyalty Program</li>
+                <li><strong>Overview:</strong> Developed and maintained a loyalty management system for banks to enhance customer engagement through reward points accumulation, redemption, and tracking.</li>
+                <li><strong>Key Responsibilities:</strong>
+                    <ul>
+                        <li>Backend Development: Built robust services using Java and Spring Boot.</li>
+                        <li>Microservices Architecture: Decomposed monolithic applications for better scalability.</li>
+                        <li>Database Management: Utilized MySQL and MongoDB for efficient data storage.</li>
+                        <li>API Integration: Developed RESTful APIs for internal and external communications.</li>
+                        <li>CI/CD Practices: Automated build, test, and deployment with Jenkins and GitLab CI.</li>
+                        <li>Shell Scripting: Automated tasks to improve productivity.</li>
+                    </ul>
+                </li>
+                <li><strong>Technologies Used:</strong> Java, Spring Boot, Microservices, MySQL, MongoDB, Jenkins, GitLab CI, Shell Scripting</li>
+                <li><strong>Achievements:</strong>
+                    <ul>
+                        <li>Reduced system downtime with microservices architecture.</li>
+                        <li>Improved data retrieval times and system performance.</li>
+                        <li>Streamlined deployment processes, reducing time and errors.</li>
+                        <li>Delivered reliable loyalty management solutions, enhancing customer satisfaction.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container" id="projects">
+        <div class="card section fade-in">
+            <h2 class="section-title">Projects</h2>
+            <h3>Bank Loyalty Program</h3>
+            <ul>
+                <li><strong>Overview:</strong> Developed a loyalty management system to enhance customer engagement for banks.</li>
+                <li><strong>Key Responsibilities:</strong>
+                    <ul>
+                        <li>Backend Development using Java and Spring Boot.</li>
+                        <li>Microservices Architecture for scalability.</li>
+                        <li>Efficient data storage with MySQL and MongoDB.</li>
+                        <li>RESTful APIs for communication.</li>
+                        <li>Automated build, test, and deployment processes with Jenkins and GitLab CI.</li>
+                        <li>Productivity improvements through Shell Scripting.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container" id="contact">
+        <div class="card section fade-in">
+            <h2 class="section-title">Contact Me</h2>
+            <ul>
+                <li class="contact-info"><span class="icon icon-email"></span><strong>Email:</strong> <a href="mailto:balasahebmunde52@gmail.com">balasahebmunde52@gmail.com</a></li>
+                <li class="contact-info"><span class="icon icon-phone"></span><strong>Phone:</strong> <a href="tel:+918412843162">(+91) 8412843162</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Balasaheb Munde. All rights reserved.</p>
+    </footer>
+</body>
+</html>
