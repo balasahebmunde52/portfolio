@@ -142,6 +142,21 @@
         a.icon-linkedin:hover {
             color: #0077B5;
         }
+        .section-title {
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #4CAF50;
+            text-align: center;
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .skills-list li {
+            flex: 0 0 48%;
+            margin-bottom: 0.5rem;
+        }
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -184,17 +199,17 @@
     </div>
 
     <div class="card fade-in" id="about">
-        <h2>About Me</h2>
+        <h2 class="section-title">About Me</h2>
         <ul>
-            <li><span class="icon icon-linkedin"></span><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/balasaheb-java-spring-boot-developer" class="highlight icon-linkedin">Balasaheb's LinkedIn</a></li>
+            <li class="contact-info"><span class="icon icon-linkedin"></span><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/balasaheb-java-spring-boot-developer" class="highlight icon-linkedin">Balasaheb's LinkedIn</a></li>
             <li class="contact-info"><span class="icon icon-email"></span><strong>Email:</strong> <a href="mailto:balasahebmunde52@gmail.com" class="highlight">balasahebmunde52@gmail.com</a></li>
             <li class="contact-info"><span class="icon icon-phone"></span><strong>Phone:</strong> <a href="tel:+918412843162" class="highlight">(+91) 8412843162</a></li>
         </ul>
     </div>
 
     <div class="card fade-in" id="skills">
-        <h2>Technical Skills</h2>
-        <ul>
+        <h2 class="section-title">Technical Skills</h2>
+        <ul class="skills-list">
             <li>Java (Object-Oriented Programming, Multithreading, JDBC)</li>
             <li>Spring Boot (Actuators, Microservice-Based Architecture)</li>
             <li>Microservices Architecture</li>
@@ -226,12 +241,10 @@
     </div>
 
     <div class="card fade-in" id="experience">
-        <h2>Professional Experience</h2>
-        <h3>Software Engineer</h3>
-        <div class="contact-info"><p>Loyalty Rewardz Management Pvt. Ltd.</p></div>
+        <h2 class="section-title">Professional Experience</h2>
+        <h3>Loylty Rewardz Management Pvt Ltd, Mumbai</h3>
         <ul>
-            <li><strong>Project:</strong> Bank Loyalty Program</li>
-            <li><strong>Overview:</strong> Developed and maintained a loyalty management system for banks to enhance customer engagement through reward points accumulation, redemption, and tracking.</li>
+            <li><strong>Role:</strong> Java Developer (Aug 2021 - Present)</li>
             <li><strong>Key Responsibilities:</strong>
                 <ul>
                     <li>Backend Development: Built robust services using Java and Spring Boot.</li>
@@ -255,7 +268,7 @@
     </div>
 
     <div class="card fade-in" id="projects">
-        <h2>Projects</h2>
+        <h2 class="section-title">Projects</h2>
         <h3>Bank Loyalty Program</h3>
         <ul>
             <li><strong>Overview:</strong> Developed a loyalty management system to enhance customer engagement for banks.</li>
