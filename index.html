@@ -45,19 +45,14 @@
             justify-content: center;
             align-items: center;
         }
-        .nav-menu a {
-            margin: 0 1rem;
-        }
         .nav-links {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-        }
-        .nav-links.active {
             display: flex;
         }
         .nav-links a {
-            margin: 0.5rem 0;
+            margin: 0 1rem;
+        }
+        .nav-links.active {
+            display: flex;
         }
         .hero {
             background: linear-gradient(to right, #4CAF50, #2c6b2f);
@@ -102,7 +97,7 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        h1, h2 {
+        .section-title {
             text-align: center;
             color: #333;
             font-size: 1.5rem;
@@ -364,6 +359,22 @@
                     </ul>
                 </li>
             </ul>
+        </div>
+
+        <div class="card section fade-in" id="contact">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-info">
+                <i class="fas fa-envelope icon icon-email"></i>
+                <p>Email: <a href="mailto:balasaheb.munde@example.com">balasaheb.munde@example.com</a></p>
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-phone icon icon-phone"></i>
+                <p>Phone: <a href="tel:+1234567890">+123 456 7890</a></p>
+            </div>
+            <div class="contact-info">
+                <i class="fab fa-linkedin icon icon-linkedin"></i>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/balasaheb-munde" target="_blank">balasaheb-munde</a></p>
+            </div>
         </div>
     </div>
 
