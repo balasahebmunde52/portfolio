@@ -40,6 +40,13 @@
             padding: 2rem;
             padding-top: 80px; /* Adjusted to avoid overlap with sticky navbar */
         }
+        .section {
+            padding: 2rem 0;
+            margin: 1rem 0;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
         h1, h2 {
             text-align: center;
             color: #333;
@@ -125,7 +132,7 @@
             font-weight: bold;
         }
         .icon-linkedin::before {
-            content: "\f0e1"; /* LinkedIn icon */
+            content: "\f08c"; /* LinkedIn icon */
             font-family: 'FontAwesome';
         }
         .icon-email::before {
@@ -136,26 +143,23 @@
             content: "\f095"; /* Phone icon */
             font-family: 'FontAwesome';
         }
-        .icon-linkedin {
-            font-size: 1.5rem;
-        }
-        a.icon-linkedin:hover {
-            color: #0077B5;
+        @media (max-width: 600px) {
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+            .container {
+                padding: 1rem;
+            }
         }
         .section-title {
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #4CAF50;
             text-align: center;
-        }
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        .skills-list li {
-            flex: 0 0 48%;
-            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            padding: 0.5rem;
+            background: #4CAF50;
+            color: #fff;
+            border-radius: 5px;
         }
     </style>
     <script>
@@ -198,18 +202,18 @@
         </div>
     </div>
 
-    <div class="card fade-in" id="about">
+    <div class="card section fade-in" id="about">
         <h2 class="section-title">About Me</h2>
         <ul>
-            <li class="contact-info"><span class="icon icon-linkedin"></span><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/balasaheb-java-spring-boot-developer">Balasaheb's LinkedIn</a></li>
-            <li class="contact-info"><span class="icon icon-email"></span><strong>Email:</strong> <a href="mailto:balasahebmunde52@gmail.com" class="highlight">balasahebmunde52@gmail.com</a></li>
-            <li class="contact-info"><span class="icon icon-phone"></span><strong>Phone:</strong> <a href="tel:+918412843162" class="highlight">(+91) 8412843162</a></li>
+            <li class="contact-info"><span class="icon icon-linkedin"></span><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/balasaheb-java-spring-boot-developer" class="highlight">Balasaheb's LinkedIn</a></li>
+            <li class="contact-info"><span class="icon icon-email"></span><strong>Email:</strong> balasahebmunde52@gmail.com</li>
+            <li class="contact-info"><span class="icon icon-phone"></span><strong>Phone:</strong> (+91) 8412843162</li>
         </ul>
     </div>
 
-    <div class="card fade-in" id="skills">
+    <div class="card section fade-in" id="skills">
         <h2 class="section-title">Technical Skills</h2>
-        <ul class="skills-list">
+        <ul>
             <li>Java (Object-Oriented Programming, Multithreading, JDBC)</li>
             <li>Spring Boot (Actuators, Microservice-Based Architecture)</li>
             <li>Microservices Architecture</li>
@@ -240,11 +244,13 @@
         </ul>
     </div>
 
-    <div class="card fade-in" id="experience">
+    <div class="card section fade-in" id="experience">
         <h2 class="section-title">Professional Experience</h2>
-        <h3>Loylty Rewardz Management Pvt Ltd, Mumbai</h3>
+        <h3>Loylty Rewardz Management Pvt. Ltd. - Software Engineer</h3>
+        <div class="contact-info"><p>Loyalty Rewardz Management Pvt. Ltd.</p></div>
         <ul>
-            <li><strong>Role:</strong> Java Developer (Aug 2021 - Present)</li>
+            <li><strong>Project:</strong> Bank Loyalty Program</li>
+            <li><strong>Overview:</strong> Developed and maintained a loyalty management system for banks to enhance customer engagement through reward points accumulation, redemption, and tracking.</li>
             <li><strong>Key Responsibilities:</strong>
                 <ul>
                     <li>Backend Development: Built robust services using Java and Spring Boot.</li>
@@ -267,7 +273,7 @@
         </ul>
     </div>
 
-    <div class="card fade-in" id="projects">
+    <div class="card section fade-in" id="projects">
         <h2 class="section-title">Projects</h2>
         <h3>Bank Loyalty Program</h3>
         <ul>
