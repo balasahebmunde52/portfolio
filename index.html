@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Balasaheb Munde - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,6 +12,7 @@
             margin: 0;
             padding: 0;
             background: #f9f9f9;
+            scroll-behavior: smooth;
         }
         nav {
             background-color: #333;
@@ -36,6 +38,7 @@
             max-width: 800px;
             margin: auto;
             padding: 2rem;
+            padding-top: 80px; /* Adjusted to avoid overlap with sticky navbar */
         }
         h1, h2 {
             text-align: center;
@@ -57,13 +60,14 @@
         }
         ul li:hover {
             background: #f0f0f0;
+            transform: translateX(10px);
         }
         .card {
             border: 1px solid #ddd;
             padding: 1rem;
             margin: 1rem 0;
-            border-radius: 5px;
-            box-shadow: 2px 2px 12px #aaa;
+            border-radius: 8px;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
         .card:hover {
@@ -81,7 +85,7 @@
             background-color: #4CAF50;
             border: none;
             border-radius: 15px;
-            box-shadow: 0 9px #999;
+            box-shadow: 0 4px #999;
             transition: background-color 0.3s ease;
         }
         .button:hover {
@@ -89,8 +93,8 @@
         }
         .button:active {
             background-color: #3e8e41;
-            box-shadow: 0 5px #666;
-            transform: translateY(4px);
+            box-shadow: 0 2px #666;
+            transform: translateY(2px);
         }
         footer {
             text-align: center;
@@ -102,6 +106,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0.5rem 0;
         }
         .contact-info .icon {
             font-size: 1.5rem;
@@ -119,16 +124,17 @@
             color: #4CAF50;
             font-weight: bold;
         }
-        /* Internal icons using Unicode characters */
-        .icon-email::before {
-            content: "\2709"; /* Envelope icon */
-        }
-        .icon-phone::before {
-            content: "\260E"; /* Phone icon */
-        }
         .icon-linkedin::before {
             content: "\f0e1"; /* LinkedIn icon */
-            font-family: FontAwesome;
+            font-family: 'FontAwesome';
+        }
+        .icon-email::before {
+            content: "\f0e0"; /* Envelope icon */
+            font-family: 'FontAwesome';
+        }
+        .icon-phone::before {
+            content: "\f095"; /* Phone icon */
+            font-family: 'FontAwesome';
         }
     </style>
     <script>
@@ -141,9 +147,7 @@
 
             var appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
                 entries.forEach(function(entry) {
-                    if (!entry.isIntersecting) {
-                        return;
-                    } else {
+                    if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                         appearOnScroll.unobserve(entry.target);
                     }
