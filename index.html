@@ -114,10 +114,18 @@
             align-items: center;
             justify-content: center;
             margin: 0.5rem 0;
+            cursor: pointer;
+        }
+        .contact-info:hover a {
+            color: #4CAF50;
         }
         .contact-info .icon {
             font-size: 1.5rem;
             margin-right: 10px;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+        .contact-info:hover .icon {
             color: #4CAF50;
         }
         .fade-in {
@@ -206,9 +214,9 @@
         <div class="card section fade-in">
             <h2 class="section-title">About Me</h2>
             <ul>
-                <li class="contact-info"><span class="icon icon-linkedin"></span><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/balasaheb-java-spring-boot-developer" class="highlight">Balasaheb's LinkedIn</a></li>
-                <li class="contact-info"><span class="icon icon-email"></span><strong>Email:</strong> <a href="mailto:balasahebmunde52@gmail.com">balasahebmunde52@gmail.com</a></li>
-                <li class="contact-info"><span class="icon icon-phone"></span><strong>Phone:</strong> <a href="tel:+918412843162">(+91) 8412843162</a></li>
+                <li class="contact-info"><span class="icon icon-linkedin"></span><a href="https://www.linkedin.com/in/balasaheb-java-spring-boot-developer">LinkedIn</a></li>
+                <li class="contact-info"><span class="icon icon-email"></span><a href="mailto:balasahebmunde52@gmail.com">Email</a></li>
+                <li class="contact-info"><span class="icon icon-phone"></span><a href="tel:+918412843162">Phone</a></li>
             </ul>
         </div>
     </div>
