@@ -34,11 +34,66 @@
         nav a:hover {
             color: #4CAF50;
         }
+        .nav-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            margin: 0;
+        }
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .nav-menu a {
+            margin: 0 1rem;
+        }
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+        .nav-links.active {
+            display: flex;
+        }
+        .nav-links a {
+            margin: 0.5rem 0;
+        }
+        .hero {
+            background: linear-gradient(to right, #4CAF50, #2c6b2f);
+            color: #fff;
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 0;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
         .container {
             max-width: 800px;
             margin: auto;
             padding: 2rem;
-            padding-top: 100px; /* Adjusted to avoid overlap with sticky navbar */
+            padding-top: 2rem; /* Adjusted to avoid overlap with sticky navbar */
         }
         .section {
             padding: 2rem 0;
@@ -50,7 +105,7 @@
         h1, h2 {
             text-align: center;
             color: #333;
-            font-size: 2rem;
+            font-size: 1.5rem;
         }
         ul {
             list-style-type: none;
@@ -144,22 +199,34 @@
             font-family: 'FontAwesome';
         }
         @media (max-width: 600px) {
-            nav a {
+            nav {
+                padding: 1rem 0;
+            }
+            .nav-toggle {
                 display: block;
-                margin: 0.5rem 0;
+                color: #fff;
+                background: #333;
+                border: none;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+            }
+            .nav-links.active {
+                display: flex;
             }
             .container {
                 padding: 1rem;
             }
-        }
-        .section-title {
-            text-align: center;
-            font-size: 1.5rem;
-            margin: 1rem 0;
-            padding: 0.5rem;
-            background: #4CAF50;
-            color: #fff;
-            border-radius: 5px;
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 0.9rem;
+            }
         }
     </style>
     <script>
@@ -182,113 +249,122 @@
             faders.forEach(function(fader) {
                 appearOnScroll.observe(fader);
             });
+
+            var navToggle = document.querySelector('.nav-toggle');
+            var navLinks = document.querySelector('.nav-links');
+            navToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
         });
     </script>
 </head>
 <body>
     <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <button class="nav-toggle"><i class="fas fa-bars"></i></button>
+        <div class="nav-menu">
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
     </nav>
 
-    <div class="container" id="home">
-        <h1>Balasaheb Munde - Java Developer</h1>
-        <div class="card fade-in">
-            <p>I am a results-driven Java Developer with 2.10 years of experience in software engineering, specializing in Java, Spring Boot, Microservices Architecture, MySQL, MongoDB, and CI/CD practices. Passionate about delivering impactful solutions and optimizing system performance. Proven track record in collaborative environments, adept at problem-solving and continuous improvement. Eager to leverage expertise in innovative projects that push boundaries and deliver measurable impact.</p>
+    <div class="hero" id="home">
+        <div class="hero-content">
+            <h1>Balasaheb Munde - Java Developer</h1>
+            <p>I am a results-driven Java Developer with 2.10 years of experience specializing in Java, Spring Boot, Microservices Architecture, and more.</p>
         </div>
     </div>
 
-    <div class="card section fade-in" id="about">
-        <h2 class="section-title">About Me</h2>
-        <ul>
-            <li class="contact-info"><span class="icon icon-linkedin"></span><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/balasaheb-java-spring-boot-developer" class="highlight">Balasaheb's LinkedIn</a></li>
-            <li class="contact-info"><span class="icon icon-email"></span><strong>Email:</strong> <a href="mailto:balasahebmunde52@gmail.com" class="highlight">balasahebmunde52@gmail.com</a></li>
-            <li class="contact-info"><span class="icon icon-phone"></span><strong>Phone:</strong> <a href="tel:+918412843162" class="highlight">(+91) 8412843162</a></li>
-        </ul>
-    </div>
+    <div class="container">
+        <div class="card section fade-in" id="about">
+            <h2 class="section-title">About Me</h2>
+            <p>Hello! I'm Balasaheb Munde, a passionate Java Developer with a focus on building scalable and efficient backend systems. My expertise lies in Java, Spring Boot, Microservices, and various other technologies that help in creating robust solutions. I am driven by the challenge of solving complex problems and delivering high-quality software that meets the needs of users and businesses alike.</p>
+        </div>
 
-    <div class="card section fade-in" id="skills">
-        <h2 class="section-title">Technical Skills</h2>
-        <ul>
-            <li>Java (Object-Oriented Programming, Multithreading, JDBC)</li>
-            <li>Spring Boot (Actuators, Microservice-Based Architecture)</li>
-            <li>Microservices Architecture</li>
-            <li>MySQL (MySQL Database)</li>
-            <li>MongoDB (NoSQL)</li>
-            <li>Shell Scripting</li>
-            <li>CI/CD Practices (Jenkins, Git)</li>
-            <li>Kubernetes (K8s)</li>
-            <li>Kafka (Messaging Queues)</li>
-            <li>Linux</li>
-            <li>Postman Tool</li>
-            <li>Hibernate (JPA)</li>
-            <li>Prometheus</li>
-            <li>Eclipse IDE</li>
-            <li>IntelliJ IDEA</li>
-            <li>Swagger</li>
-            <li>REST API</li>
-            <li>Bootstrap</li>
-            <li>Apache Camel</li>
-            <li>Apache Airflow</li>
-            <li>PostgreSQL</li>
-            <li>Jira (Project Management)</li>
-            <li>SuperPutty</li>
-            <li>WinSCP</li>
-            <li>OAuth</li>
-            <li>Version Control (Git)</li>
-            <li>Debugging and Production Bug Resolution</li>
-        </ul>
-    </div>
+        <div class="card section fade-in" id="skills">
+            <h2 class="section-title">Skills</h2>
+            <ul>
+                <li>Java (Object-Oriented Programming, Multithreading, JDBC)</li>
+                <li>Spring Boot (Actuators, Microservice-Based Architecture)</li>
+                <li>Microservices Architecture</li>
+                <li>MySQL (MySQL Database)</li>
+                <li>MongoDB (NoSQL)</li>
+                <li>Shell Scripting</li>
+                <li>CI/CD Practices (Jenkins, Git)</li>
+                <li>Kubernetes (K8s)</li>
+                <li>Kafka (Messaging Queues)</li>
+                <li>Linux</li>
+                <li>Postman Tool</li>
+                <li>Hibernate (JPA)</li>
+                <li>Prometheus</li>
+                <li>Eclipse IDE</li>
+                <li>IntelliJ IDEA</li>
+                <li>Swagger</li>
+                <li>REST API</li>
+                <li>Bootstrap</li>
+                <li>Apache Camel</li>
+                <li>Apache Airflow</li>
+                <li>PostgreSQL</li>
+                <li>Jira (Project Management)</li>
+                <li>SuperPutty</li>
+                <li>WinSCP</li>
+                <li>OAuth</li>
+                <li>Version Control (Git)</li>
+                <li>Debugging and Production Bug Resolution</li>
+            </ul>
+        </div>
 
-    <div class="card section fade-in" id="experience">
-        <h2 class="section-title">Professional Experience</h2>
-        <h3>Loylty Rewardz Management Pvt. Ltd. - Software Engineer</h3>
-        <div class="contact-info"><p>Loyalty Rewardz Management Pvt. Ltd.</p></div>
-        <ul>
-            <li><strong>Project:</strong> Bank Loyalty Program</li>
-            <li><strong>Overview:</strong> Developed and maintained a loyalty management system for banks to enhance customer engagement through reward points accumulation, redemption, and tracking.</li>
-            <li><strong>Key Responsibilities:</strong>
-                <ul>
-                    <li>Backend Development: Built robust services using Java and Spring Boot.</li>
-                    <li>Microservices Architecture: Decomposed monolithic applications for better scalability.</li>
-                    <li>Database Management: Utilized MySQL and MongoDB for efficient data storage.</li>
-                    <li>API Integration: Developed RESTful APIs for internal and external communications.</li>
-                    <li>CI/CD Practices: Automated build, test, and deployment with Jenkins and GitLab CI.</li>
-                    <li>Shell Scripting: Automated tasks to improve productivity.</li>
-                </ul>
-            </li>
-            <li><strong>Technologies Used:</strong> Java, Spring Boot, Microservices, MySQL, MongoDB, Jenkins, GitLab CI, Shell Scripting</li>
-            <li><strong>Achievements:</strong>
-                <ul>
-                    <li>Reduced system downtime with microservices architecture.</li>
-                    <li>Improved data retrieval times and system performance.</li>
-                    <li>Streamlined deployment processes, reducing time and errors.</li>
-                    <li>Delivered reliable loyalty management solutions, enhancing customer satisfaction.</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
+        <div class="card section fade-in" id="experience">
+            <h2 class="section-title">Professional Experience</h2>
+            <h3>Loyalty Rewardz Management Pvt. Ltd. - Software Engineer</h3>
+            <div class="contact-info"><p>Loyalty Rewardz Management Pvt. Ltd.</p></div>
+            <ul>
+                <li><strong>Project:</strong> Bank Loyalty Program</li>
+                <li><strong>Overview:</strong> Developed and maintained a loyalty management system for banks to enhance customer engagement through reward points accumulation, redemption, and tracking.</li>
+                <li><strong>Key Responsibilities:</strong>
+                    <ul>
+                        <li>Backend Development: Built robust services using Java and Spring Boot.</li>
+                        <li>Microservices Architecture: Decomposed monolithic applications for better scalability.</li>
+                        <li>Database Management: Utilized MySQL and MongoDB for efficient data storage.</li>
+                        <li>API Integration: Developed RESTful APIs for internal and external communications.</li>
+                        <li>CI/CD Practices: Automated build, test, and deployment with Jenkins and GitLab CI.</li>
+                        <li>Shell Scripting: Automated tasks to improve productivity.</li>
+                    </ul>
+                </li>
+                <li><strong>Technologies Used:</strong> Java, Spring Boot, Microservices, MySQL, MongoDB, Jenkins, GitLab CI, Shell Scripting</li>
+                <li><strong>Achievements:</strong>
+                    <ul>
+                        <li>Reduced system downtime with microservices architecture.</li>
+                        <li>Improved data retrieval times and system performance.</li>
+                        <li>Streamlined deployment processes, reducing time and errors.</li>
+                        <li>Delivered reliable loyalty management solutions, enhancing customer satisfaction.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
 
-    <div class="card section fade-in" id="projects">
-        <h2 class="section-title">Projects</h2>
-        <h3>Bank Loyalty Program</h3>
-        <ul>
-            <li><strong>Overview:</strong> Developed a loyalty management system to enhance customer engagement for banks.</li>
-            <li><strong>Key Responsibilities:</strong>
-                <ul>
-                    <li>Backend Development using Java and Spring Boot.</li>
-                    <li>Microservices Architecture for scalability.</li>
-                    <li>Efficient data storage with MySQL and MongoDB.</li>
-                    <li>RESTful APIs for communication.</li>
-                    <li>Automated build, test, and deployment processes with Jenkins and GitLab CI.</li>
-                    <li>Productivity improvements through Shell Scripting.</li>
-                </ul>
-            </li>
-        </ul>
+        <div class="card section fade-in" id="projects">
+            <h2 class="section-title">Projects</h2>
+            <h3>Bank Loyalty Program</h3>
+            <ul>
+                <li><strong>Overview:</strong> Developed a loyalty management system to enhance customer engagement for banks.</li>
+                <li><strong>Key Responsibilities:</strong>
+                    <ul>
+                        <li>Backend Development using Java and Spring Boot.</li>
+                        <li>Microservices Architecture for scalability.</li>
+                        <li>Efficient data storage with MySQL and MongoDB.</li>
+                        <li>RESTful APIs for communication.</li>
+                        <li>Automated build, test, and deployment processes with Jenkins and GitLab CI.</li>
+                        <li>Productivity improvements through Shell Scripting.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
 
     <footer>
