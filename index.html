@@ -114,6 +114,7 @@
             align-items: center;
             justify-content: center;
             margin: 0.5rem 0;
+            font-size: 1.1rem;
         }
         .contact-info .icon {
             font-size: 1.5rem;
@@ -162,6 +163,14 @@
             color: #fff;
             border-radius: 5px;
         }
+        .contact-info a {
+            color: #4CAF50;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .contact-info a:hover {
+            color: #333;
+        }
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -207,8 +216,8 @@
         <h2 class="section-title">About Me</h2>
         <ul>
             <li class="contact-info"><span class="icon icon-linkedin"></span><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/balasaheb-java-spring-boot-developer" class="highlight">Balasaheb's LinkedIn</a></li>
-            <li class="contact-info"><span class="icon icon-email"></span><strong>Email:</strong> balasahebmunde52@gmail.com</li>
-            <li class="contact-info"><span class="icon icon-phone"></span><strong>Phone:</strong> (+91) 8412843162</li>
+            <li class="contact-info"><span class="icon icon-email"></span><strong>Email:</strong> <a href="mailto:balasahebmunde52@gmail.com" class="highlight">balasahebmunde52@gmail.com</a></li>
+            <li class="contact-info"><span class="icon icon-phone"></span><strong>Phone:</strong> <a href="tel:+918412843162" class="highlight">(+91) 8412843162</a></li>
         </ul>
     </div>
 
