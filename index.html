@@ -41,25 +41,24 @@
         }
 
         .container {
-            max-width: 100%;
+            max-width: 800px;
             margin: auto;
             padding: 2rem 1rem;
             padding-top: 80px;
         }
 
         .section {
-            padding: 1rem 0;
+            padding: 2rem 0;
             margin: 1rem 0;
             background: #fff;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        h1,
-        h2 {
+        h1, h2 {
             text-align: center;
             color: #333;
-            font-size: 1.5rem;
+            font-size: 2rem;
         }
 
         ul {
@@ -85,7 +84,7 @@
         .card {
             border: 1px solid #ddd;
             padding: 1rem;
-            margin: 0.5rem 0;
+            margin: 1rem 0;
             border-radius: 8px;
             box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
@@ -171,18 +170,28 @@
         }
 
         @media (max-width: 600px) {
+            nav {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
             nav a {
                 display: block;
                 margin: 0.5rem 0;
             }
 
-            h1,
-            h2 {
-                font-size: 1.2rem;
+            .container {
+                padding: 1rem;
+            }
+
+            h1, h2 {
+                font-size: 1.5rem;
             }
 
             ul li {
-                padding: 0.5rem;
+                font-size: 1rem;
+                padding: .5rem;
             }
         }
 
@@ -221,15 +230,15 @@
         }
     </style>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             var faders = document.querySelectorAll('.fade-in');
             var options = {
                 threshold: 0.5,
                 rootMargin: "0px 0px -50px 0px"
             };
 
-            var appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
-                entries.forEach(function (entry) {
+            var appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                         appearOnScroll.unobserve(entry.target);
@@ -237,7 +246,7 @@
                 });
             }, options);
 
-            faders.forEach(function (fader) {
+            faders.forEach(function(fader) {
                 appearOnScroll.observe(fader);
             });
         });
@@ -285,24 +294,31 @@
                 <li>Hibernate (JPA)</li>
                 <li>Shell Scripting</li>
                 <li>CI/CD Practices (Jenkins, Git)</li>
+                <li>Version Control (Git)</li>
+                <li>Debugging and Production Bug Resolution</li>
+                <li>Linux</li>
+                <li>Swagger</li>
+                <li>Bootstrap</li>
+                <li>Postman Tool</li>
                 <li>Kubernetes (K8s)</li>
                 <li>Kafka (Messaging Queues)</li>
-                <li>Linux - Shell Scripting</li>
-                <li>Postman Tool</li>
-                <li>Actuator</li>
-                <li>Jira</li>
+                <li>Apache Camel</li>
+                <li>Apache Airflow</li>
+                <li>Prometheus</li>
+                <li>Jira (Project Management)</li>
+                <li>SuperPutty, WinSCP, OAuth</li>
+                <li>Eclipse IDE, IntelliJ IDEA</li>
             </ul>
         </div>
     </div>
 
     <div class="container" id="experience">
         <div class="card section fade-in">
-            <h2 class="section-title">Professional Experience</h2>
+            <h2 class="section-title">Experience</h2>
             <ul>
-                <li>Company: Loyalty Rewardz Management Pvt. Ltd.</li>
-                <li>Role: Java Developer</li>
-                <li>Project: Bank Loyalty Program</li>
-                <li>Duration: [Duration]</li>
+                <li><strong>Loyalty Rewardz Management Pvt. Ltd. (Java Developer)</strong><br>
+                    <p>Working on Bank Loyalty Program to enhance and maintain the core backend systems, utilizing Java, Spring Boot, Microservices, and a suite of related technologies to ensure smooth operations and scalability.</p>
+                </li>
             </ul>
         </div>
     </div>
@@ -311,21 +327,22 @@
         <div class="card section fade-in">
             <h2 class="section-title">Projects</h2>
             <ul>
-                <li>Project 1: Description of Project 1</li>
-                <li>Project 2: Description of Project 2</li>
+                <li><strong>Project Name</strong><br>
+                    <p>Brief description of the project, technologies used, and the impact of the work.</p>
+                </li>
             </ul>
         </div>
     </div>
 
     <div class="container" id="contact">
         <div class="card section fade-in">
-            <h2 class="section-title">Contact Me</h2>
-            <p>Feel free to reach out to me via email at <a href="mailto:balasahebmunde52@gmail.com">balasahebmunde52@gmail.com</a> or connect with me on <a href="https://www.linkedin.com/in/balasaheb-java-spring-boot-developer">LinkedIn</a>.</p>
+            <h2 class="section-title">Contact</h2>
+            <p>You can reach me via email at <a href="mailto:balasahebmunde52@gmail.com">balasahebmunde52@gmail.com</a> or connect with me on <a href="https://www.linkedin.com/in/balasaheb-java-spring-boot-developer">LinkedIn</a>.</p>
         </div>
     </div>
 
     <footer>
-        &copy; 2024 Balasaheb Munde. All Rights Reserved.
+        <p>&copy; 2024 Balasaheb Vishnu Munde. All rights reserved.</p>
     </footer>
 </body>
 
