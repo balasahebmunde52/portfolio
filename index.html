@@ -131,27 +131,48 @@
         }
 
         .contact-info {
-    text-align: center;
-}
-
-.contact-info p {
-    display: inline-block;
-    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
 .contact-info .icon {
     font-size: 1.5rem;
-    margin-right: 10px;
-    color: #4CAF50;
+    color: #333; /* Default color for icons */
+    margin-right: 8px; /* Space between icon and text */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
 }
 
 .contact-info a {
-    color: #333;
     text-decoration: none;
+    color: #333; /* Default link color */
+    transition: color 0.3s ease; /* Smooth transition for color change */
 }
 
 .contact-info a:hover {
-    text-decoration: underline;
+    color: #4CAF50; /* Change link color on hover */
+}
+
+.contact-info .fa-linkedin:hover {
+    color: #0077b5; /* LinkedIn color */
+}
+
+.contact-info .fa-instagram:hover {
+    color: #e4405f; /* Instagram color */
+}
+
+.contact-info .fa-facebook:hover {
+    color: #1877f2; /* Facebook color */
+}
+
+.contact-info .fa-twitter:hover {
+    color: #1da1f2; /* Twitter color */
 }
 
         .fade-in {
@@ -382,7 +403,7 @@ bank's retention rates.Leveraged Java and Spring Boot for backend services, impl
             </p>
             <p>
                 <span class="icon"><i class="fab fa-linkedin"></i></span> 
-                LinkedIn: <a href="https://www.linkedin.com/in/balasaheb-java-spring-boot-developer">Connect on LinkedIn</a>
+                LinkedIn: <a href="https://www.linkedin.com/in/balasaheb-java-spring-boot-developer" target="_blank">Connect on LinkedIn</a>
             </p>
             <p>
                 <span class="icon"><i class="fas fa-phone"></i></span> 
@@ -403,6 +424,7 @@ bank's retention rates.Leveraged Java and Spring Boot for backend services, impl
         </div>
     </div>
 </div>
+
 
 
     <footer>
