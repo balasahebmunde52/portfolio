@@ -13,6 +13,7 @@
             padding: 0;
             background: #f9f9f9;
             scroll-behavior: smooth;
+            color: #333;
         }
         nav {
             background-color: #333;
@@ -122,7 +123,7 @@
         }
         .fade-in {
             opacity: 0;
-            transition: opacity 1s ease-in;
+            transition: opacity 2s;
         }
         .visible {
             opacity: 1;
@@ -164,6 +165,21 @@
         #home {
             background: #e0f7fa;
         }
+        #about {
+            background: #e8f5e9;
+        }
+        #skills {
+            background: #fffde7;
+        }
+        #experience {
+            background: #f3e5f5;
+        }
+        #projects {
+            background: #e1f5fe;
+        }
+        #contact {
+            background: #ffebee;
+        }
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -190,12 +206,12 @@
 </head>
 <body>
     <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="#home">🏠 Home</a>
+        <a href="#about">👤 About</a>
+        <a href="#skills">💡 Skills</a>
+        <a href="#experience">💼 Experience</a>
+        <a href="#projects">📂 Projects</a>
+        <a href="#contact">📞 Contact</a>
     </nav>
 
     <div class="container" id="home">
@@ -234,29 +250,22 @@
                 <li>Linux - Shell Scripting</li>
                 <li>Postman Tool</li>
                 <li>Actuator</li>
-                <li>Prometheus</li>
-                <li>Eclipse IDE</li>
-                <li>IntelliJ IDEA</li>
-                <li>Swagger</li>
-                <li>HTML, CSS, Bootstrap</li>
-                <li>Apache Airflow</li>
                 <li>Jira</li>
-                <li>SuperPutty</li>
-                <li>WinSCP</li>
-                <li>Apache Camel</li>
             </ul>
         </div>
     </div>
 
     <div class="container" id="experience">
         <div class="card section fade-in">
-            <h2 class="section-title">Experience</h2>
-            <h3>Loylty Rewardz Management Pvt. Ltd. - Software Engineer</h3>
-            <p>Collaborated on the development of the Accrual Loyalty Program for banks, contributing to both backend and frontend tasks.</p>
+            <h2 class="section-title">Professional Experience</h2>
+            <h3>Software Engineer, Loylty Rewardz Management Pvt. Ltd.</h3>
             <ul>
-                <li>Developed RestAPI for various business modules, ensuring seamless integration with third-party services.</li>
-                <li>Transformed business requirements into technical specifications, optimizing processes for efficiency and effectiveness.</li>
-                <li>Handled customer escalations, working directly with clients to resolve issues and improve customer satisfaction.</li>
+                <li>Developed and maintained Rest APIs using Java and Spring Boot.</li>
+                <li>Transformed business requirements into technical specifications and effective solutions.</li>
+                <li>Ensured seamless data integration and optimized application performance.</li>
+                <li>Collaborated with cross-functional teams for project delivery and client satisfaction.</li>
+                <li>Experience with Kubernetes for container orchestration.</li>
+                <li>Handled customer escalations with direct communication.</li>
             </ul>
         </div>
     </div>
@@ -264,17 +273,20 @@
     <div class="container" id="projects">
         <div class="card section fade-in">
             <h2 class="section-title">Projects</h2>
-            <h3>Project Name</h3>
-            <p>Description of the project, technologies used, and the impact or results achieved. Include any key learnings or unique challenges faced during the project.</p>
+            <h3>Accrual Loyalty Program</h3>
+            <ul>
+                <li>Played a key role in the Accrual Loyalty Program for banks.</li>
+                <li>Developed, tested, and maintained APIs for the program.</li>
+                <li>Enhanced program efficiency through effective coding practices.</li>
+            </ul>
         </div>
     </div>
 
     <div class="container" id="contact">
         <div class="card section fade-in">
             <h2 class="section-title">Contact</h2>
-            <p>Feel free to reach out to me through any of the contact methods below:</p>
+            <p>If you have any questions or would like to discuss potential opportunities, please feel free to reach out to me:</p>
             <ul>
-                <li class="contact-info"><span class="icon icon-linkedin"></span><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/balasaheb-java-spring-boot-developer" class="highlight">Balasaheb's LinkedIn</a></li>
                 <li class="contact-info"><span class="icon icon-email"></span><strong>Email:</strong> <a href="mailto:balasahebmunde52@gmail.com">balasahebmunde52@gmail.com</a></li>
                 <li class="contact-info"><span class="icon icon-phone"></span><strong>Phone:</strong> <a href="tel:+918412843162">(+91) 8412843162</a></li>
             </ul>
@@ -282,7 +294,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 Balasaheb Munde. All rights reserved.</p>
+        <p>Connect with me on <a href="https://www.linkedin.com/in/balasaheb-java-spring-boot-developer" class="highlight">LinkedIn</a></p>
     </footer>
 </body>
 </html>
