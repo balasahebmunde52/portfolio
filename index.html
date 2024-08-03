@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Balasaheb Vishnu Munde - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<!--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
- -->
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,7 +26,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, padding 0.3s ease;
         }
 
         nav a {
@@ -36,6 +35,10 @@
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
+        }
+
+        nav a.active {
+            color: #ff9933;
         }
 
         nav a:hover {
@@ -129,69 +132,52 @@
             background: #333;
             color: #fff;
         }
-    .contact-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-}
 
-.contact-info .icon {
-    font-size: 1.5rem;
-    color: #333; /* Default color for icons */
-    margin-right: 8px; /* Space between icon and text */
-    transition: color 0.3s ease; /* Smooth transition for color change */
-}
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
 
-.contact-info p {
-    display: flex;
-    align-items: center;
-}
+        .contact-info .icon {
+            font-size: 1.5rem;
+            color: #333;
+            margin-right: 8px;
+            transition: color 0.3s ease;
+        }
 
-.contact-info a {
-    text-decoration: none;
-    color: #333; /* Default link color */
-    transition: color 0.3s ease; /* Smooth transition for color change */
-}
+        .contact-info p {
+            display: flex;
+            align-items: center;
+        }
 
-.contact-info a:hover {
-    color: #4CAF50; /* Change link color on hover */
-}
+        .contact-info a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s ease;
+        }
 
-/* Default colors for icons */
-.contact-info .fa-linkedin {
-    color: #0077b5; /* LinkedIn color */
-}
+        .contact-info a:hover {
+            color: #4CAF50;
+        }
 
-.contact-info .fa-instagram {
-    color: #e4405f; /* Instagram color */
-}
+        /* Icon Colors */
+        .fa-linkedin {
+            color: #0077b5;
+        }
 
-.contact-info .fa-facebook {
-    color: #1877f2; /* Facebook color */
-}
+        .fa-instagram {
+            color: #e4405f;
+        }
 
-.contact-info .fa-twitter {
-    color: #1da1f2; /* Twitter color */
-}
+        .fa-facebook {
+            color: #1877f2;
+        }
 
-/* Hover effects with slight color change */
-.contact-info .fa-linkedin:hover {
-    color: #005582; /* Slightly darker LinkedIn color */
-}
-
-.contact-info .fa-instagram:hover {
-    color: #c13584; /* Slightly darker Instagram color */
-}
-
-.contact-info .fa-facebook:hover {
-    color: #166fe5; /* Slightly darker Facebook color */
-}
-
-.contact-info .fa-twitter:hover {
-    color: #1a91da; /* Slightly darker Twitter color */
-}
-
+        .fa-twitter {
+            color: #1da1f2;
+        }
 
         .fade-in {
             opacity: 0;
@@ -202,27 +188,11 @@
             opacity: 1;
         }
 
-        .highlight {
-            color: #4CAF50;
-            font-weight: bold;
-        }
-
-        .icon-linkedin::before {
-            content: "\f08c";
-            font-family: 'FontAwesome';
-        }
-
-        .icon-email::before {
-            content: "\f0e0";
-            font-family: 'FontAwesome';
-        }
-
-        .icon-phone::before {
-            content: "\f095";
-            font-family: 'FontAwesome';
-        }
-
         @media (max-width: 600px) {
+            nav {
+                padding: 0.5rem;
+            }
+
             nav a {
                 display: block;
                 margin: 0.5rem 0;
@@ -272,6 +242,7 @@
             background: #ffebee;
         }
     </style>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var faders = document.querySelectorAll('.fade-in');
@@ -292,13 +263,37 @@
             faders.forEach(function (fader) {
                 appearOnScroll.observe(fader);
             });
+
+            // Highlighting the current section in the navbar
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+
+                    if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
         });
     </script>
 </head>
 
 <body>
     <nav>
-        <a href="#home">🏠 Home</a>
+        <a href="#home" class="active">🏠 Home</a>
         <a href="#about">👤 About</a>
         <a href="#skills">💡 Skills</a>
         <a href="#experience">💼 Experience</a>
@@ -309,7 +304,7 @@
     <div class="container" id="home">
         <h1>Balasaheb Munde - Java Developer</h1>
         <div class="card fade-in">
-            <p>Passionate and driven Java Developer with nearly 3 years of experience specializing in Java, Spring Boot, Microservices Architecture, RestAPI Development, MySQL, MongoDB, Shell Scripting, and CI/CD practices. Currently contributing to dynamic projects at Loylty Rewardz Management Pvt. Ltd. in Mumbai.Proven track record in collaborative environments, adept at problem-solving and continuous improvement. Eager to leverage expertise in innovative projects that push boundaries and deliver measurable impact. I believe my skills align well with your requirements and would love to discuss how I can contribute to your team.</p>
+            <p>Passionate and driven Java Developer with nearly 3 years of experience specializing in Java, Spring Boot, Microservices Architecture, RestAPI Development, MySQL, MongoDB, Shell Scripting, and CI/CD practices. Currently contributing to dynamic projects at Loylty Rewardz Management Pvt. Ltd. in Mumbai. Proven track record in collaborative environments, adept at problem-solving and continuous improvement. Eager to leverage expertise in innovative projects that push boundaries and deliver measurable impact.</p>
         </div>
     </div>
 
@@ -317,9 +312,10 @@
         <div class="card section fade-in">
             <h2 class="section-title">About Me</h2>
             <ul>
-                <li class="contact-info"><span class="icon icon-linkedin"></span><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/balasaheb-java-spring-boot-developer" class="highlight">Balasaheb's LinkedIn</a></li>
-                <li class="contact-info"><span class="icon icon-email"></span><strong>Email:</strong> <a href="mailto:balasahebmunde52@gmail.com">balasahebmunde52@gmail.com</a></li>
-                <li class="contact-info"><span class="icon icon-phone"></span><strong>Phone:</strong> <a href="tel:+918412843162">(+91) 8412843162</a></li>
+                <li class="contact-info"><span class="icon"><i class="fab fa-linkedin"></i></span><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/balasaheb-munde" target="_blank">linkedin.com/in/balasaheb-munde</a></li>
+                <li class="contact-info"><span class="icon"><i class="fas fa-envelope"></i></span><strong>Email:</strong> <a href="mailto:balasaheb.munde@example.com">balasaheb.munde@example.com</a></li>
+                <li class="contact-info"><span class="icon"><i class="fas fa-phone"></i></span><strong>Phone:</strong> +91-1234567890</li>
+                <li class="contact-info"><span class="icon"><i class="fas fa-map-marker-alt"></i></span><strong>Location:</strong> Mumbai, India</li>
             </ul>
         </div>
     </div>
@@ -328,26 +324,23 @@
         <div class="card section fade-in">
             <h2 class="section-title">Technical Skills</h2>
             <ul>
-                <li>Java (Object-Oriented Programming, Multithreading, JDBC)</li>
+                <li>Java (OOP, Multithreading, JDBC)</li>
                 <li>Spring Boot (Actuators, Microservice-Based Architecture)</li>
                 <li>Microservices Architecture</li>
-                <li>MySQL (MySQL Database)</li>
-                <li>MongoDB (NoSQL)</li>
-                <li>REST API</li>
-                <li>Hibernate (JPA)</li>
-                <li>Shell Scripting</li>
-                <li>CI/CD Practices (Jenkins, Git)</li>
-                <li>Kubernetes (K8s)</li>
-                <li>Kafka (Messaging Queues)</li>
-                <li>Linux - Shell Scripting</li>
-                <li>Postman Tool</li>
-                <li>Actuator</li>
-                <li>Jira</li>
+                <li>MySQL, MongoDB (NoSQL)</li>
+                <li>Shell Scripting, CI/CD Practices (Jenkins, Git)</li>
+                <li>Kubernetes (K8s), Kafka (Messaging Queues)</li>
+                <li>Linux, Postman Tool, Hibernate (JPA)</li>
+                <li>Prometheus, Eclipse IDE, IntelliJ IDEA</li>
+                <li>Swagger, REST API, Bootstrap</li>
+                <li>Apache Camel, Apache Airflow, PostgreSQL</li>
+                <li>Jira (Project Management), SuperPutty, WinSCP</li>
+                <li>OAuth, Version Control (Git), Debugging and Production Bug Resolution</li>
             </ul>
         </div>
     </div>
 
-   <div class="container" id="experience">
+    <div class="container" id="experience">
         <div class="card section fade-in">
             <h2 class="section-title">Experience</h2>
             <div class="card">
@@ -411,42 +404,20 @@ bank's retention rates.Leveraged Java and Spring Boot for backend services, impl
         </div>
     </div>
 
-   <div class="container" id="contact">
-    <div class="card section fade-in">
-        <h2 class="section-title">Contact Me</h2>
-        <div class="contact-info">
-            <p>
-                <span class="icon"><i class="fas fa-envelope"></i></span> 
-                Email: <a href="mailto:balasahebmunde52@gmail.com">balasahebmunde52@gmail.com</a>
-            </p>
-            <p>
-                <span class="icon"><i class="fab fa-linkedin"></i></span> 
-                LinkedIn: <a href="https://www.linkedin.com/in/balasaheb-java-spring-boot-developer" target="_blank">Connect on LinkedIn</a>
-            </p>
-            <p>
-                <span class="icon"><i class="fas fa-phone"></i></span> 
-                Mobile: <a href="tel:+918412843162">(+91) 8412843162</a>
-            </p>
-            <p>
-                <span class="icon"><i class="fab fa-instagram"></i></span> 
-                Instagram: <a href="https://www.instagram.com/er_bala_munde/?hl=en" target="_blank">Follow on Instagram</a>
-            </p>
-            <p>
-                <span class="icon"><i class="fab fa-facebook"></i></span> 
-                Facebook: <a href="https://www.facebook.com/balasaheb.munde.7923/" target="_blank">Connect on Facebook</a>
-            </p>
-            <p>
-                <span class="icon"><i class="fab fa-twitter"></i></span> 
-                Twitter: <a href="https://x.com/MUNDEBALASAHEB3" target="_blank">Follow on Twitter</a>
-            </p>
+    <div class="container" id="contact">
+        <div class="card section fade-in">
+            <h2 class="section-title">Contact Me</h2>
+            <p>I am open to opportunities and collaborations. Feel free to reach out through any of the following:</p>
+            <ul>
+                <li><strong>Email:</strong> balasaheb.munde@example.com</li>
+                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/balasaheb-munde" target="_blank">linkedin.com/in/balasaheb-munde</a></li>
+                <li><strong>Phone:</strong> +91-1234567890</li>
+            </ul>
         </div>
     </div>
-</div>
-
-
 
     <footer>
-        &copy; 2024 Balasaheb Vishnu Munde. All Rights Reserved.
+        <p>&copy; 2024 Balasaheb Vishnu Munde. All rights reserved.</p>
     </footer>
 </body>
 
